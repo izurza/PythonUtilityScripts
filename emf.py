@@ -2,7 +2,7 @@ import glob
 import email
 
 if __name__ == '__main__':
-    files = glob.glob("/Users/izurz/Desktop/phishing9.eml")
+    files = glob.glob("/****/email.eml")
     for each in files:
         msg = email.message_from_file(open(each))
         attachments = msg.get_payload()
