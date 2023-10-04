@@ -4,8 +4,11 @@ This script automates the task of paraphrasing text. Provide the text and let th
 
 ## Usage 🛠
 You can easily use this script from the terminal. Navigate to the directory containing `paraphraser.py`, then run:
+
 --data is the text you want to paraphrase.
+
 --config is optional, to choose the browser for Selenium. Default is Firefox.
+
 --limit is optional, to set the word limit per batch. Default is 125
 
 ```bash
