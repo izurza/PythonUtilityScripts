@@ -22,7 +22,7 @@ python3 paraphraser.py --data "Your text here." --config Firefox --limit 125
 Ensure you have all necessary packages installed. Install dependencies using the provided `requirements.txt` file with pip.
 
 ## Contributions 🤝
-Contributions are welcome. Feel free to open an Issue or a Pull Request.
+- [@wikilift](https://github.com/wikilift).
 
 ## License 📄
 This project is licensed under the MIT License - see the LICENSE.md file for details.

@@ -1,6 +1,6 @@
 from paraphraser_utils import paraphrase
 import argparse
-parser = argparse.ArgumentParser(description='Paraphrase text using Quillbot.')
+parser = argparse.ArgumentParser(description='Paraphrase text.')
 parser.add_argument('--data', required=True, help='The text to paraphrase.')
 parser.add_argument('--configMode', default='Firefox', choices=['Firefox', 'Chrome'], help='Browser configuration mode.')
 parser.add_argument('--limit', type=int, default=125, help='Word limit for each paraphrasing block.')
