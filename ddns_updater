@@ -1,0 +1,44 @@
+from requests import get
+import csv
+import os
+
+csv_file = 'ip_changes.csv'
+
+def get_ip():
+    ip = get('https://api.ipify.org').content.decode('utf8')
+    return ip
+
+def check_ip_change():
+
+    current_ip = get_ip()
+
+    if not os.path.exists(csv_file):
+        with open(csv_file, 'w', newline='', encoding='utf-8') as f:
+            writer = csv.writer(f)
+            writer.writerow(['ip_address', 'date'])
+            writer.writerow([current_ip, __import__('datetime').datetime.now().isoformat()])
+            print("Created new CSV file for IP changes.")
+    else:
+        with open(csv_file, 'r', newline='', encoding='utf-8') as f:
+            last_line = f.readlines()[-1]
+            last_ip = last_line.split(',')[0]
+        if current_ip != last_ip:
+            with open(csv_file, 'a', newline='', encoding='utf-8') as f:
+                writer = csv.writer(f)
+                writer.writerow([current_ip, __import__('datetime').datetime.now().isoformat()])
+            update_duck(current_ip)
+            print(f"IP changed from {last_ip} to {current_ip}. Logged the change.")
+        else:
+            print("No IP change detected.")
+
+
+def update_duck(ip):
+    domains = ''
+    token = ''
+    url = f'https://www.duckdns.org/update?domains={domains}&token={token}&ip={ip}&verbose=true'
+    response = get(url)
+    print(response.text)
+
+
+if __name__ == "__main__":
+    check_ip_change()
